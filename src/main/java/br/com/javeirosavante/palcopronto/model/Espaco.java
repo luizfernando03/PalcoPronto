@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class EspacoModel {
+public class Espaco {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

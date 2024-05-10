@@ -5,14 +5,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-
 @Entity
-@Table(name = "venda")
+@Table(name = "ingresso")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class VendasModel {
+public class Ingresso {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,8 +18,10 @@ public class VendasModel {
 
     @ManyToMany
     @JoinColumn(name = "eventoid")
-    private EventoModel eventoModel;
+    private Evento eventoModel;
 
-    private LocalDateTime dataHora;
+    private boolean vip;
+
+    private double preco;
 
 }
