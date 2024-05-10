@@ -19,9 +19,9 @@ public class VendasModel {
     private long id;
 
     @ManyToMany
-    @JoinColumn(name = "evento_id")
+    @JoinColumn(name = "eventoid")
     private EventoModel eventoModel;
-    
+
     private LocalDateTime dataHora;
 
 }
