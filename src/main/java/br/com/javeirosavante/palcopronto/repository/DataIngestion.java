@@ -17,6 +17,7 @@ public class DataIngestion implements CommandLineRunner {
     //CRIAR EVENTOS NO BANCO DE DADOS
     @Override
     public void run(String... args) throws Exception {
-        
+
     }
+
 }
