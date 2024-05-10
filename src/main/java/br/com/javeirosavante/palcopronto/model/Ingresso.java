@@ -18,7 +18,7 @@ public class Ingresso {
 
     @ManyToMany
     @JoinColumn(name = "eventoid")
-    private Evento eventoModel;
+    private Evento evento;
 
     private boolean vip;
 

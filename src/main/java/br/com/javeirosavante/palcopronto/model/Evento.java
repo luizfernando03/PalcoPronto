@@ -31,7 +31,7 @@ public class Evento {
     private LocalDateTime dataHora;
 
     @ManyToMany
-    @JoinColumn(name = "espaco_id")
-    private Espaco espacoModel;
+    @JoinColumn(name = "espacoid")
+    private Espaco espaco;
 
 }

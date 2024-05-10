@@ -20,7 +20,7 @@ public class Vendas {
 
     @ManyToMany
     @JoinColumn(name = "eventoid")
-    private Evento eventoModel;
+    private Evento evento;
 
     private LocalDateTime dataHora;
 
