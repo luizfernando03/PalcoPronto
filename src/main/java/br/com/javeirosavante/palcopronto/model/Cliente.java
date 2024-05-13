@@ -1,10 +1,7 @@
 package br.com.javeirosavante.palcopronto.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,11 +14,14 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "cliente")
 public class Cliente {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String cpf;
 
     @OneToOne
-    @JoinColumn(name = "idVenda")
+    @JoinColumn(name = "idVendas")
     private Venda venda;
 
 }
