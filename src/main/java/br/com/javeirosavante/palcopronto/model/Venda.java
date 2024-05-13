@@ -18,10 +18,16 @@ public class Venda {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    private LocalDateTime dataVenda;
+
+    private Cliente cliente;
+
+    private Ingresso ingresso;
+
     @ManyToMany
-    @JoinColumn(name = "eventoId")
+    @JoinColumn(name = "idEvento")
     private Evento evento;
 
-    private LocalDateTime dataHora;
+
 
 }
