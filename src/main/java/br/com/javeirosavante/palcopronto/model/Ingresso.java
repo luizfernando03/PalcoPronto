@@ -1,5 +1,6 @@
 package br.com.javeirosavante.palcopronto.model;
 
+import br.com.javeirosavante.palcopronto.dto.TipoIngresso;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
