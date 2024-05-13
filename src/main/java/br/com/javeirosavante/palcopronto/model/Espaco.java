@@ -21,7 +21,7 @@ public class Espaco {
     private String descricao;
 
     @NotNull
-    private int capacidademaxima;
+    private int capacidadeMaxima;
 
     private boolean disponivel;
 }
