@@ -1,16 +1,14 @@
 package br.com.javeirosavante.palcopronto.config;
 
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class ClienteConfig {
+public class EspacoConfig {
 
-    @Bean
-    public List<ClienteDto> repositorioCliente() {
+    @Bean("dbEspaco")
+    public List<EspacoDto> repositorioEspaco() {
         return new ArrayList<>();
-
     }
 
 }

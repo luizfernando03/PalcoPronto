@@ -7,13 +7,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class EventoConfig {
 
-    @Bean
-    public Evento evento(){
-        Evento evento = new Evento();
-        evento.setid();
-        evento.setnome();
-        evento.setdata();
-        evento.sethora();
+    public List<ClienteDto> repositorioCliente() {
+        return new ArrayList<>();
 
     }
 
