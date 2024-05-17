@@ -19,9 +19,13 @@ public class IngressoController {
     private IngressoService ingressoService;
 
     @GetMapping
-    public List<Ingresso> getAllIngressos() { return ingressoService.findAll(); }
+    public List<Ingresso> getAllIngressos() {
+        return ingressoService.findAll();
+    }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Ingresso> getIngressoById(@PathVariable Long id) { Optional<Ingresso> ingresso = ingressoService.findById(id);
-
+    public ResponseEntity<Ingresso> getIngressoById(@PathVariable Long id) {
+        Optional<Ingresso> ingresso = ingressoService.findById(id);
+        return ingresso.map(ResponseEntity:: ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
 }
