@@ -6,12 +6,13 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
-public interface EventoRepository extends JpaRepository<Evento, Integer> {
+public interface EventoRepository extends JpaRepository<Evento, Long> {
 
-    public List<Evento> findEventoByIdNomeEvento(@Param("nomeEvento") String nomeEvento);
+    public Optional<Evento> findById(@Param("idEvento") Long idEvento);
 
-    //public List <Evento> findallBy
+    public Optional<Evento> findEventoByNomeEventoContainingIgnoreCase(@Param("nomeEvento")  String nomeEvento);
 
 }
