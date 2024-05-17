@@ -1,7 +1,6 @@
 package br.com.javeirosavante.palcopronto.mapper;
 
 import br.com.javeirosavante.palcopronto.dto.ClienteDto;
-import br.com.javeirosavante.palcopronto.model.Cliente;
 
 import java.awt.*;
 import java.util.Objects;

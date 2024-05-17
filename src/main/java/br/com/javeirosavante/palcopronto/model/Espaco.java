@@ -7,8 +7,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Entity
 @Table(name = "espaco")
 @Data
@@ -27,6 +25,8 @@ public class Espaco {
     @NotNull
     private String descricao;
 
-    @OneToMany(mappedBy = "espaco")
-    private List<Evento> eventos;
+    @NotNull
+    private Integer capacidadeMaxima;
+
+    private Boolean disponibilidade;
 }

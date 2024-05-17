@@ -1,6 +1,5 @@
 package br.com.javeirosavante.palcopronto.dto;
 
-import br.com.javeirosavante.palcopronto.model.Cliente;
 import br.com.javeirosavante.palcopronto.model.Ingresso;
 
 import java.time.LocalDateTime;
