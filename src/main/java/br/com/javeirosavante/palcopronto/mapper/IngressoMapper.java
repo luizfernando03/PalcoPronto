@@ -5,6 +5,7 @@ import br.com.javeirosavante.palcopronto.model.Ingresso;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class IngressoMapper {
 
@@ -38,7 +39,16 @@ public class IngressoMapper {
                     .quantidadeMaxima(dto.getQuantidadeMaxima())
                     .build();
         } else {
-            return Ingresso.buhttps://app.quicktype.io/ilder().build();
+            return Ingresso.builder().build();
         }
+    }
+
+    public static void copy(final Ingresso source, final Ingresso destiny) {
+        destiny.setIdIngresso(source.getIdIngresso());
+        destiny.setTipoIngresso(source.getTipoIngresso());
+        destiny.setIngressoDisponivel(source.getIngressoDisponivel());
+        destiny.setPrecoIngresso(source.getPrecoIngresso());
+        destiny.setQuantidadeMaxima(source.getQuantidadeMaxima());
+    }
 
 }

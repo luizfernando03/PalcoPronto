@@ -1,6 +1,6 @@
 package br.com.javeirosavante.palcopronto.mapper;
 
-public class VendasMapper {
+public class TrasacaoMapper {
 
 
 //    public static List<IngressoDto> toDto(final List<Ingresso> entities) {
