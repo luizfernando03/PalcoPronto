@@ -1,7 +1,7 @@
 package br.com.javeirosavante.palcopronto.config;
 
 
-import br.com.javeirosavante.palcopronto.model.Venda;
+import br.com.javeirosavante.palcopronto.model.Transacao;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -9,8 +9,8 @@ import org.springframework.context.annotation.Configuration;
 public class VendaConfig {
 
     @Bean
-    public Venda venda() {
-        Venda venda = new Venda();
+    public Transacao venda() {
+        Transacao venda = new Transacao();
         evento.setid();
         evento.setnome();
         evento.setdata();

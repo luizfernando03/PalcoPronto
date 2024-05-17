@@ -1,40 +1,39 @@
 package br.com.javeirosavante.palcopronto.model;
 
-
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.br.CPF;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
-@AllArgsConstructor
-@NoArgsConstructor
+@Entity
+@Table(name = "transacao")
 @Data
 @Builder
-@Entity
-@Table(name = "cliente")
-public class Cliente {
+@NoArgsConstructor
+@AllArgsConstructor
+public class Transacao {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
-    private String nome;
+    private LocalDateTime dataHora;
 
     @NotNull
-    @CPF
-    private String cpf;
+    @Min(1)
+    private int quantidadeIngressos;
 
-    @NotNull
-    @Email
-    private String email;
+    @ManyToOne
+    private Cliente cliente;
 
-    @OneToMany(mappedBy = "cliente")
-    private List<Transacao> transacoes;
+    @OneToMany(mappedBy = "transacao")
+    private List<Ingresso> ingressos;
 
 }

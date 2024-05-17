@@ -1,6 +1,6 @@
 package br.com.javeirosavante.palcopronto.dto;
 
-import br.com.javeirosavante.palcopronto.model.Venda;
+import br.com.javeirosavante.palcopronto.model.Transacao;
 import org.hibernate.validator.constraints.br.CPF;
 
 public class ClienteDto {
@@ -8,5 +8,5 @@ public class ClienteDto {
     @CPF
     private String cpf;
 
-    private Venda venda;
+    private Transacao venda;
 }

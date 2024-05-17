@@ -2,31 +2,38 @@ package br.com.javeirosavante.palcopronto.model;
 
 import br.com.javeirosavante.palcopronto.dto.TipoIngresso;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "ingresso")
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Ingresso {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idIngresso;
+    private Long id;
 
-    private TipoIngresso tipoIngresso;
+    private int quantidadeDisponivel;
 
-    private Boolean ingressoDisponivel;
+    @NotNull
+    private TipoIngresso tipo;
 
-    private Double precoIngresso;
+    @NotNull
+    private BigDecimal precoUnitario;
 
-    private Long quantidadeMaxima;
-
-    @ManyToMany
-    @JoinColumn(name = "idEvento")
+    @ManyToOne
     private Evento evento;
+
+    @ManyToOne
+    private Transacao transacao;
 
 }

@@ -5,6 +5,7 @@ import br.com.javeirosavante.palcopronto.model.Evento;
 
 import java.awt.*;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class EventoMapper {
 

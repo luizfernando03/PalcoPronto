@@ -3,12 +3,16 @@ package br.com.javeirosavante.palcopronto.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Table(name = "espaco")
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Espaco {
@@ -18,10 +22,11 @@ public class Espaco {
     private long id;
 
     @NotNull
-    private String descricao;
+    private String nome;
 
     @NotNull
-    private int capacidadeMaxima;
+    private String descricao;
 
-    private boolean disponivel;
+    @OneToMany(mappedBy = "espaco")
+    private List<Evento> eventos;
 }

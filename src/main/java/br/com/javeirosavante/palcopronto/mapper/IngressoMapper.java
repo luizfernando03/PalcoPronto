@@ -38,7 +38,7 @@ public class IngressoMapper {
                     .quantidadeMaxima(dto.getQuantidadeMaxima())
                     .build();
         } else {
-            return Ingresso.builder().build();
+            return Ingresso.buhttps://app.quicktype.io/ilder().build();
         }
 
 }
