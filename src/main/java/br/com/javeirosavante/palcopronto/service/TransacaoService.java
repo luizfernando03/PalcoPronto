@@ -12,7 +12,7 @@ public interface TransacaoService {
     Optional<Transacao> findById(final Long idTransacao);
 
 
-    Transacao criarTransacao(final Evento transacaoDto);
+    Transacao criarTransacao(final Transacao transacaoDto);
 
 
     void cancelarTransacao(final Long idTransacao);
