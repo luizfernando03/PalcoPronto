@@ -15,5 +15,4 @@ public interface IngressoRepository extends JpaRepository<Ingresso , String > {
 
     // public Optional<Ingresso> findIngressoByNomeContainingIgnoreCase(@Param("nomeEvento") String nome_evento);
 
-
 }

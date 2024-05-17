@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface EspacoRepository extends JpaRepository<Espaco, String> {
+public interface EspacoRepository extends JpaRepository<Espaco, Integer> {
 
     public List<Espaco> findEspacoByCapacidadeMaximaContainingIgnoreCase
             (@Param("capacidadeMaxima") Integer capacidadeMaxima);
