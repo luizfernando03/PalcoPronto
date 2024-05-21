@@ -3,6 +3,7 @@ package br.com.javeirosavante.palcopronto.dto;
 import br.com.javeirosavante.palcopronto.model.Espaco;
 import br.com.javeirosavante.palcopronto.model.Evento;
 import br.com.javeirosavante.palcopronto.model.Transacao;
+import br.com.javeirosavante.palcopronto.validator.IngressoEsgotadoException;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
