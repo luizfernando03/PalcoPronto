@@ -1,39 +1,57 @@
 package br.com.javeirosavante.palcopronto.controller;
 
-
+import br.com.javeirosavante.palcopronto.dto.TransacaoDto;
 import br.com.javeirosavante.palcopronto.model.Transacao;
+import br.com.javeirosavante.palcopronto.service.IngressoService;
 import br.com.javeirosavante.palcopronto.service.TransacaoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
 import java.util.List;
+import java.util.Optional;
+
+import static br.com.javeirosavante.palcopronto.mapper.TransacaoMapper.toEntity;
 
 @RestController
-@RequestMapping("/vendas")
+@RequestMapping("/transacao")
 public class TransacaoController {
 
     @Autowired
     private TransacaoService transacaoService;
+    private IngressoService ingressoService;
 
     @GetMapping
-    public List<Transacao> getAllTransacoes() { return transacaoService.findAll(); }
+    public List<Transacao> getAllTransacoes() {
+        return transacaoService.findAll();
+    }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Transacao> getTransacaoById(@PathVariable Long id) { Optional<Transacao> transacao = transacaoService.findById(id); return transacao.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    @GetMapping("/{idTransacao}")
+    public ResponseEntity<Transacao> getTransacaoByIdTransacao(@PathVariable Long idTransacao) {
+        Optional<Transacao> transacao = transacaoService.findByIdTransacao(idTransacao);
+        return transacao.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public Transacao createTransacao(@RequestBody Transacao transacao) { return transacaoService.criarTransacao(transacao);
+    public ResponseEntity<Void> createTransacao(@RequestBody @Valid TransacaoDto transacao) {
+        transacaoService.criarTransacao(toEntity(transacao));
+        transacao.getIngresso().setQuantidadeMaxima(
+                ingressoService.vendaIngresso(transacao.getIngresso().getIdIngresso()));
+
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteTransacao(@PathVariable Long id) { try { transacaoService.cancelarTransacao(id);
-        return ResponseEntity.noContent().build();
-    } catch (Exception e) {
-        return ResponseEntity.notFound().build();
-    }
+    @DeleteMapping("/{idTransacao}")
+    public ResponseEntity<Void> deleteTransacao(@PathVariable Long idTransacao) {
+        try {
+            transacaoService.cancelarTransacao(idTransacao);
+            return ResponseEntity.noContent().build();
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
 }
