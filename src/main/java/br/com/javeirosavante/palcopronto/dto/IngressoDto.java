@@ -4,7 +4,8 @@ import br.com.javeirosavante.palcopronto.model.Espaco;
 import br.com.javeirosavante.palcopronto.model.Evento;
 import br.com.javeirosavante.palcopronto.model.Transacao;
 import br.com.javeirosavante.palcopronto.validator.IngressoEsgotadoException;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,7 +26,7 @@ public class IngressoDto {
 
     private Double precoIngresso;
 
-    private Long quantidadeMaxima;
+    private @NotNull Integer quantidadeMaxima;
 
     private Evento evento;
 

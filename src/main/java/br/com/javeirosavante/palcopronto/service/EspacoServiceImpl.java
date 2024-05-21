@@ -14,7 +14,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class EspacoServiceImpl {
+public class EspacoServiceImpl implements EspacoService{
 
     @Autowired
     private EspacoRepository repository;

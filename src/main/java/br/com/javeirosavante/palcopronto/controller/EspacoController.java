@@ -1,17 +1,9 @@
 package br.com.javeirosavante.palcopronto.controller;
 
 import br.com.javeirosavante.palcopronto.model.Espaco;
-import br.com.javeirosavante.palcopronto.model.Evento;
-import br.com.javeirosavante.palcopronto.model.Ingresso;
-import br.com.javeirosavante.palcopronto.model.Transacao;
-import br.com.javeirosavante.palcopronto.repository.TransacaoRepository;
-import br.com.javeirosavante.palcopronto.validator.IngressoEsgotadoException;
-import br.com.javeirosavante.palcopronto.validator.TransacaoExistenteException;
-import br.com.javeirosavante.palcopronto.validator.TransacaoNaoExisteException;
-import lombok.RequiredArgsConstructor;
+import br.com.javeirosavante.palcopronto.service.EspacoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

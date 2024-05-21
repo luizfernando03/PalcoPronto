@@ -10,13 +10,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.xml.transform.TransformerConfigurationException;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class TransacaoServiceImpl implements TransacaoServiceImpl {
+public class TransacaoServiceImpl implements TransacaoService {
 
     @Autowired
     private TransacaoRepository repository;
@@ -26,6 +25,7 @@ public class TransacaoServiceImpl implements TransacaoServiceImpl {
     public List<Transacao> findAll() {
         return repository.findAll();
     }
+
 
     @Override
     public Optional<Transacao> findByIdTransacao(Long idTransacao) {

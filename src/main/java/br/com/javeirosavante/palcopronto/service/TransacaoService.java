@@ -8,13 +8,15 @@ import java.util.Optional;
 public interface TransacaoService {
 
     List<Transacao> findAll();
+    
 
-    Optional<Transacao> findById(final Long idTransacao);
+    Optional<Transacao> findByIdTransacao(final Long idTransacao);
 
 
     Transacao criarTransacao(final Transacao transacaoDto);
 
 
     void cancelarTransacao(final Long idTransacao);
+
 
 }

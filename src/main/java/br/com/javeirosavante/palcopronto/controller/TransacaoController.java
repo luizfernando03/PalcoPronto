@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.Optional;
 
 import static br.com.javeirosavante.palcopronto.mapper.IngressoMapper.toEntity;
-import static br.com.javeirosavante.palcopronto.mapper.TransacaoMapper.toEntity;
 
 @RestController
 @RequestMapping("/transacao")
@@ -37,9 +36,9 @@ public class TransacaoController {
 
     @PostMapping
     public ResponseEntity<Void> createTransacao(@RequestBody @Valid TransacaoDto transacao) {
-        transacaoService.criarTransacao(toEntity(transacao));
+        transacaoService.criarTransacao(toEntity(transacao).getTransacao());
         transacao.getIngresso().setQuantidadeMaxima(
-                ingressoService.vendaIngresso(transacao.getIngresso().getIdIngresso()));
+                (long) ingressoService.vendaIngresso(transacao.getIngresso().getIdIngresso()));
 
         return ResponseEntity.status(HttpStatus.CREATED).build();
 
