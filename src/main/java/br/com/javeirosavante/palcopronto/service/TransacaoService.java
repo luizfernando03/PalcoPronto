@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface TransacaoService {
 
     List<Transacao> findAll();
-    
+
 
     Optional<Transacao> findByIdTransacao(final Long idTransacao);
 
