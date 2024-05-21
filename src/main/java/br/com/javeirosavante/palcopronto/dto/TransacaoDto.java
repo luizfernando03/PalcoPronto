@@ -1,5 +1,6 @@
 package br.com.javeirosavante.palcopronto.dto;
 
+import br.com.javeirosavante.palcopronto.model.Evento;
 import br.com.javeirosavante.palcopronto.model.Ingresso;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,11 +13,13 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Data
 @Builder
-public class TrasacaoDto {
+public class TransacaoDto {
 
-    private Long id;
+    private Long idTransacao;
 
-    private LocalDateTime dataVenda;
+    private LocalDateTime dataTransacao;
+
+    private Evento evento;
 
     private Ingresso ingresso;
 
