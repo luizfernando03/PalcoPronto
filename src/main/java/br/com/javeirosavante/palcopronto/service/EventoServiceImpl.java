@@ -4,6 +4,7 @@ import br.com.javeirosavante.palcopronto.mapper.EventoMapper;
 import br.com.javeirosavante.palcopronto.model.Evento;
 import br.com.javeirosavante.palcopronto.repository.EventoRepository;
 import br.com.javeirosavante.palcopronto.validator.EventoExistenteException;
+import br.com.javeirosavante.palcopronto.validator.EventoNaoExistenteException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
