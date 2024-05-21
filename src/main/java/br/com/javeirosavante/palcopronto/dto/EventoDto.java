@@ -1,5 +1,6 @@
 package br.com.javeirosavante.palcopronto.dto;
 
+import br.com.javeirosavante.palcopronto.model.Espaco;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,5 +21,7 @@ public class EventoDto {
     private String descricaoEvento;
 
     private LocalDateTime dataHoraEvento;
+
+    private Espaco espaco;
 
 }
