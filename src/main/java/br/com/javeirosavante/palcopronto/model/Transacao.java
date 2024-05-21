@@ -7,10 +7,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
-@Table(name = "transacao")
+@Table(name = "venda")
 @Data
 @Builder
 @NoArgsConstructor
@@ -18,20 +17,16 @@ import java.util.List;
 public class Transacao {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long idTransacao;
 
+    private LocalDateTime dataTrasacao;
 
-    private LocalDateTime dataHoraTrasacao;
+    @OneToOne
+    private Evento evento;
 
-
-
-    @ManyToOne
-    @JoinColumn(name = "ingresso_id")
+    @OneToOne
     private Ingresso ingresso;
 
-    @ManyToMany
-    @JoinColumn(name = "idEvento")
-    private Evento evento;
 
 }

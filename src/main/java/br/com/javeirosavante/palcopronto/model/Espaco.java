@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Table(name = "espaco")
 @Data
@@ -17,16 +19,17 @@ public class Espaco {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long idEspaco;
 
     @NotNull
-    private String nome;
-
-    @NotNull
-    private String descricao;
+    private String descricai;
 
     @NotNull
     private Integer capacidadeMaxima;
 
     private Boolean disponibilidade;
+
+    @OneToMany
+    private List<Evento> eventos;
+
 }

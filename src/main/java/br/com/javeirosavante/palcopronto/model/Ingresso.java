@@ -30,8 +30,10 @@ public class Ingresso {
 
     private Long quantidadeMaxima;
 
-    @ManyToMany
-    @JoinColumn(name = "idEvento")
+    @ManyToOne
     private Evento evento;
+
+    @ManyToOne
+    private Transacao transacao;
 
 }

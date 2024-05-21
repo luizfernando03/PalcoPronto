@@ -3,7 +3,7 @@ package br.com.javeirosavante.palcopronto.mapper;
 import br.com.javeirosavante.palcopronto.dto.EspacoDto;
 import br.com.javeirosavante.palcopronto.model.Espaco;
 
-import java.awt.*;
+import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
