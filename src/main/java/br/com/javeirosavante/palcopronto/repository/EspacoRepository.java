@@ -1,6 +1,7 @@
 package br.com.javeirosavante.palcopronto.repository;
 
 import br.com.javeirosavante.palcopronto.model.Espaco;
+import br.com.javeirosavante.palcopronto.model.Evento;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -8,12 +9,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface EspacoRepository extends JpaRepository<Espaco, Integer> {
+public interface EspacoRepository extends JpaRepository<Espaco, Long> {
 
-    public List<Espaco> findEspacoByCapacidadeMaximaContainingIgnoreCase
-            (@Param("capacidadeMaxima") Integer capacidadeMaxima);
-
-    //public List <Evento> findallBy
+    public List<Espaco> findAllEventosByIdEspaco(@Param("idEspaco") Long idEspaco);
 
 
 }
