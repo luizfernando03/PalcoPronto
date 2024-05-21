@@ -3,6 +3,7 @@ package br.com.javeirosavante.palcopronto.service;
 import br.com.javeirosavante.palcopronto.model.Transacao;
 import br.com.javeirosavante.palcopronto.repository.TransacaoRepository;
 import br.com.javeirosavante.palcopronto.validator.TransacaoExistenteException;
+import br.com.javeirosavante.palcopronto.validator.TransacaoNaoExisteException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,7 +46,7 @@ public class TransacaoServiceImpl implements TransacaoServiceImpl {
         if (transacaoOptional.isPresent()) {
             repository.delete(transacaoOptional.get());
 
-            throw new TransacaoNaoExisteException ("A transação não existe");
+            throw new TransacaoNaoExisteException("A transação não existe");
         }
 
     }
