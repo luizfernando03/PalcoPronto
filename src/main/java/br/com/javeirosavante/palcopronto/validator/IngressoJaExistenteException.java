@@ -5,5 +5,5 @@ public class IngressoJaExistenteException extends RuntimeException{
     public IngressoJaExistenteException(String msg) {
         super(msg);
     }
-    
+
 }
