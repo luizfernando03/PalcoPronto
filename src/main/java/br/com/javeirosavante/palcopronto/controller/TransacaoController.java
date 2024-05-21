@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+import static br.com.javeirosavante.palcopronto.mapper.IngressoMapper.toEntity;
 import static br.com.javeirosavante.palcopronto.mapper.TransacaoMapper.toEntity;
 
 @RestController

@@ -1,7 +1,9 @@
 package br.com.javeirosavante.palcopronto.service;
 
+import br.com.javeirosavante.palcopronto.model.Ingresso;
 import br.com.javeirosavante.palcopronto.model.Transacao;
 import br.com.javeirosavante.palcopronto.repository.TransacaoRepository;
+import br.com.javeirosavante.palcopronto.validator.IngressoEsgotadoException;
 import br.com.javeirosavante.palcopronto.validator.TransacaoExistenteException;
 import br.com.javeirosavante.palcopronto.validator.TransacaoNaoExisteException;
 import lombok.RequiredArgsConstructor;
@@ -26,7 +28,7 @@ public class TransacaoServiceImpl implements TransacaoServiceImpl {
     }
 
     @Override
-    public Optional<Transacao> findById(Long idTransacao) {
+    public Optional<Transacao> findByIdTransacao(Long idTransacao) {
         return repository.findById(idTransacao);
 
     }
@@ -36,6 +38,12 @@ public class TransacaoServiceImpl implements TransacaoServiceImpl {
         if (repository.findById(transacaoDto.getIdTransacao()).isPresent()) {
             throw new TransacaoExistenteException("Transação já Cadastrado");
         }
+
+        Ingresso verificarIngresso = transacaoDto.getIngresso();
+        if (verificarIngresso.getQuantidadeMaxima() < 1) {
+            throw new IngressoEsgotadoException("Ingressos esgotados");
+        }
+
         return repository.save(transacaoDto);
     }
 
