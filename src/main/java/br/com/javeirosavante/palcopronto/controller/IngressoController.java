@@ -1,8 +1,8 @@
 package br.com.javeirosavante.palcopronto.controller;
 
 import br.com.javeirosavante.palcopronto.model.Ingresso;
+import br.com.javeirosavante.palcopronto.service.IngressoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,16 +16,16 @@ import java.util.Optional;
 public class IngressoController {
 
     @Autowired
-    private IngressoService ingressoService;
+    private IngressoService service;
 
     @GetMapping
-    public List<Ingresso> getAllIngressos() {
-        return ingressoService.findAll();
+    public List<Ingresso> todosIngressos() {
+        return service.todosIngressos();
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Ingresso> getIngressoById(@PathVariable Long id) {
-        Optional<Ingresso> ingresso = ingressoService.findById(id);
-        return ingresso.map(ResponseEntity:: ok).orElseGet(() -> ResponseEntity.notFound().build());
+    @GetMapping("/evento/{idEvento}")
+    public List<Ingresso> getIngressoByIdEvento(@PathVariable Long idEvento) {
+        return service.getIngressoByEvento(idEvento);
     }
+
 }
