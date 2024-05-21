@@ -19,23 +19,36 @@ public class EventoController {
         return eventoService.findAll();
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Evento> getEventoById(@PathVariable Long id) { Optional<Evento> evento = eventoService.findById(id); return evento.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    @GetMapping("/{idEvento}")
+    public ResponseEntity<Evento> getEventoById(@PathVariable Long idEvento) {
+        Optional<Evento> evento = eventoService.findById(idEvento);
+
+        return evento.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/listarevento/{idEspaco}")
+    public ResponseEntity<List<Evento>> findAllEventoByEspaco(@PathVariable Long idEspaco) {
+
+        return ResponseEntity.ok(eventoService.findAllEventoByEspaco(idEspaco));
     }
 
     @PostMapping
-    public Evento createEvento(@RequestBody Evento evento) { return eventoService.criarEvento(evento);
+    public Evento createEvento(@RequestBody Evento evento) {
+        return eventoService.criarEvento(evento);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Evento> updateEvento(@PathVariable Long id, @RequestBody Evento evento) { Optional<Evento> updatedEvento = eventoService.atualizarEvento(id, evento); return updatedEvento.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    @PutMapping("/{idEvento}")
+    public ResponseEntity<Evento> updateEvento(@PathVariable Long idEvento, @RequestBody Evento evento) {
+        Optional<Evento> updatedEvento = eventoService.atualizarEvento(idEvento, evento); return updatedEvento.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteEvento(@PathVariable Long id) { try { eventoService.deletarEvento(id); return ResponseEntity.noContent().build();
-    } catch (Exception e) {
-        return ResponseEntity.notFound().build();
-    }
+    @DeleteMapping("/{idEvento}")
+    public ResponseEntity<Void> deleteEvento(@PathVariable Long idEvento) {
+        try {
+            eventoService.deletarEvento(idEvento); return ResponseEntity.noContent().build();
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
 }
