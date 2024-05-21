@@ -2,6 +2,7 @@ package br.com.javeirosavante.palcopronto.service;
 
 import br.com.javeirosavante.palcopronto.model.Transacao;
 import br.com.javeirosavante.palcopronto.repository.TransacaoRepository;
+import br.com.javeirosavante.palcopronto.validator.TransacaoExistenteException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,7 +33,7 @@ public class TransacaoServiceImpl implements TransacaoServiceImpl {
     @Override
     public Transacao criarTransacao(Transacao transacaoDto) {
         if (repository.findById(transacaoDto.getIdTransacao()).isPresent()) {
-            throw new TransacaoExistenteException ("Transação já Cadastrado");
+            throw new TransacaoExistenteException("Transação já Cadastrado");
         }
         return repository.save(transacaoDto);
     }
