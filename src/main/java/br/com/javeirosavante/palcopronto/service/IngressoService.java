@@ -14,6 +14,6 @@ public interface IngressoService {
 
     List<Ingresso> getIngressoByEvento(Long idEvento);
 
-    int vendaIngresso(Long idIngresso);
+    Long vendaIngresso(Long idIngresso);
 
 }

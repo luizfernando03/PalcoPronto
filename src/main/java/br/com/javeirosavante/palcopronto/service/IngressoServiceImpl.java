@@ -46,7 +46,7 @@ public class IngressoServiceImpl implements IngressoService {
     }
 
     @Override
-    public int vendaIngresso(Long idIngresso) {
+    public Long vendaIngresso(Long idIngresso) {
         final var ingressoProcurado = repository.findById(idIngresso);
         ingressoProcurado.ifPresent(ingresso -> ingresso.setQuantidadeMaxima(ingresso.getQuantidadeMaxima() - 1));
         return ingressoProcurado.get().getQuantidadeMaxima();

@@ -17,7 +17,7 @@ import java.util.Optional;
 public class EspacoServiceImpl implements EspacoService{
 
     @Autowired
-    private EspacoRepository repository;
+    private final EspacoRepository repository;
 
     @Override
     public List<Espaco> findAll() {

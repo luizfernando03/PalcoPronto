@@ -13,11 +13,12 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Data
 @Builder
-public class TransacaoDto {
+public class TransacaoDto extends IngressoDto {
 
+    @Id
     private Long idTransacao;
 
-    private LocalDateTime dataTransacao;
+    private LocalDataTime dataTransacao;
 
     private Evento evento;
 

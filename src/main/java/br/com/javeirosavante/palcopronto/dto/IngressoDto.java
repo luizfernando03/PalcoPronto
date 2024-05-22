@@ -5,6 +5,7 @@ import br.com.javeirosavante.palcopronto.model.Evento;
 import br.com.javeirosavante.palcopronto.model.Transacao;
 import br.com.javeirosavante.palcopronto.validator.IngressoEsgotadoException;
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,7 +16,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Builder
-public class IngressoDto {
+public class IngressoDto extends @Valid TransacaoDto {
 
     @Id
     private Long idIngresso;

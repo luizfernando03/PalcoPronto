@@ -1,9 +1,8 @@
 package br.com.javeirosavante.palcopronto.mapper;
 
 import br.com.javeirosavante.palcopronto.dto.IngressoDto;
-import br.com.javeirosavante.palcopronto.dto.TransacaoDto;
 import br.com.javeirosavante.palcopronto.model.Ingresso;
-import jakarta.validation.Valid;
+
 
 import java.util.List;
 import java.util.Objects;
@@ -24,14 +23,14 @@ public class IngressoMapper {
                     .tipoIngresso(entity.getTipoIngresso())
                     .ingressoDisponivel(entity.getIngressoDisponivel())
                     .precoIngresso(entity.getPrecoIngresso())
-                    .quantidadeMaxima(entity.getQuantidadeMaxima())
+                    .evento(entity.getEvento())
                     .build();
         } else {
             return IngressoDto.builder().build();
         }
     }
 
-    public static Ingresso toEntity(final @Valid TransacaoDto dto) {
+    public static Ingresso toEntity(final IngressoDto dto) {
         if (Objects.nonNull(dto)) {
             return Ingresso.builder()
                     .idIngresso(dto.getIdIngresso())
